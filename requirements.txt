@@ -1,0 +1,5 @@
+flask_sqlalchemy
+flask_wtf
+flask_bcrypt
+
+you need to pip install these to run this project

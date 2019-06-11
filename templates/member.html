@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+<h1 id= "demo"></h1>
+</div>
+<div class ="btn-group btn-group-lg">
+<button onclick="displayTimer = setInterval(startCount(), 1000)" class="btn btn-secondary" style="padding:60px; font-size: 40px" required >CHECK IN</button>
+<button onclick="clearInterval(displayTimer)" class="btn btn-secondary" style="padding:60px; font-size: 40px" required >CHECK OUT</button>
+</div>
+<div>
+  <br>
+<button class ="btn btn-secondary">File 1</button>
+</div>
+
+
+<!--This is a timer based on a start and end date-->
+<script>
+
+//user Time is added to current date to produce countDownDate
+  var userTime = 6000 * 42250; //30 days = 43200
+  var currentDate = new Date().getTime();
+  var countDownDate = currentDate + userTime;
+
+//start function
+  // function startCount(){
+//today's date and distance between the two
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+
+//Time calculations for days, hours, minutes
+    var dayss = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hourss = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+    var minutess = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+    var secondss = Math.floor((distance % (1000 * 60)) / 1000);
+
+//output
+    document.getElementById("demo").innerHTML ="Time: " + dayss + "Days <br>" + hourss + ":"+ minutess + ":" + secondss;
+    if(distance <= 0){
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+  // }
+
+
+</script>
+
+
+{% endblock content %}

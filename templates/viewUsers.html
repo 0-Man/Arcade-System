@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>View Users:</h3>
+<br>
+<div id="accordion">
+
+<div class="card">
+<div class="card-header">
+  <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
+    Administrators
+  </a>
+</div>
+<div id="collapseOne" class="collapse" data-parent="#accordion">
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      {% for administrator in administratorArray %}
+      <li class="list-group-item" name="administrator" id="administrator-id{{administratorArray['id']}}">
+        <p></p>
+        <div class="input-group" >
+          <input class="form-control user-textbox" id="administrator-name{{administrator['fName']}}" type="text" value="{{administrator['administrator']}}" disabled>
+          <div class="input-group-append">
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header">
+  <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+    Employee
+  </a>
+</div>
+<div id="collapseTwo" class="collapse" data-parent="#accordion">
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      {% for employee in employeeArray %}
+      <li class="list-group-item" name="employee" id="employee-id{{employeeArray['id']}}">
+        <div class="input-group" >
+          <input class="form-control user-textbox" id="employee-name{{employee['fName']}}" type="text" value="{{employee['employee']}}" disabled>
+          <div class="input-group-append">
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header">
+  <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+    Members
+  </a>
+</div>
+<div id="collapseThree" class="collapse" data-parent="#accordion">
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      {% for member in memberArray %}
+      <li class="list-group-item" name="member" id="member-id{{memberArray['id']}}">
+        <div class="input-group" >
+          <input class="form-control user-textbox" id="member-name{{member['fName']}}" type="text" value="{{member['member']}}" disabled>
+          <div class="input-group-append">
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+</div>
+
+
+</div>
+{% endblock content %}

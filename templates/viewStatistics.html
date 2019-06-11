@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+<div class="card-header">
+  <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+    Transaction
+  </a>
+</div>
+<div id="collapseThree" class="collapse" data-parent="#accordion">
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      {% for transaction in transactionArray %}
+      <li class="list-group-item" name="transaction" id="transaction-id{{transactionArray['id']}}">
+        <div class="input-group" >
+          <input class="form-control user-textbox" id="transaction-name{{transaction['fName']}}" type="text" value="{{transaction['transaction']}}" disabled>
+          <div class="input-group-append">
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+</div>
+{% endblock content %}
